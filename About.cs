@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Serial_Program
 {
@@ -69,14 +70,14 @@ namespace Serial_Program
                     lblBuildCount.Text = "ºôµå È½¼ö: ¾Ë¼ö¾øÀ½";
                 }
 
-                // Use file last write time of the assembly for a reliable build date
+                // Use file last write time of the assembly for a reliable build date and format as (YYYY-MM-DD)
                 var buildDate = GetAssemblyFileWriteTime(asm);
-                lblBuildDate.Text = "ºôµå ³¯Â¥: " + buildDate.ToString("yyyy-MM-dd");
+                lblBuildDate.Text = "(" + buildDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) + ")";
             }
             catch
             {
                 lblBuildCount.Text = "ºôµå È½¼ö: ¾Ë¼ö¾øÀ½";
-                lblBuildDate.Text = "ºôµå ³¯Â¥: ¾Ë¼ö¾øÀ½";
+                lblBuildDate.Text = "(¾Ë¼ö¾øÀ½)";
             }
 
             // Company link

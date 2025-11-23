@@ -32,9 +32,9 @@ namespace Serial_Program
             // 
             // pictureBoxLogo
             // 
-            this.pictureBoxLogo.Location = new System.Drawing.Point(39, 27);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(12, 18);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(186, 174);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(118, 108);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
@@ -43,45 +43,45 @@ namespace Serial_Program
             // 
             this.lblProgramName.AutoSize = true;
             this.lblProgramName.Font = new System.Drawing.Font("±¼¸²", 12F, System.Drawing.FontStyle.Bold);
-            this.lblProgramName.Location = new System.Drawing.Point(271, 27);
+            this.lblProgramName.Location = new System.Drawing.Point(146, 19);
             this.lblProgramName.Name = "lblProgramName";
-            this.lblProgramName.Size = new System.Drawing.Size(102, 24);
+            this.lblProgramName.Size = new System.Drawing.Size(75, 16);
             this.lblProgramName.TabIndex = 1;
             this.lblProgramName.Text = "Program";
             // 
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(271, 63);
+            this.lblVersion.Location = new System.Drawing.Point(147, 46);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(98, 18);
+            this.lblVersion.Size = new System.Drawing.Size(63, 12);
             this.lblVersion.TabIndex = 6;
             this.lblVersion.Text = "¹öÀü: 1.0.0";
             // 
             // lblBuildCount
             // 
             this.lblBuildCount.AutoSize = true;
-            this.lblBuildCount.Location = new System.Drawing.Point(272, 93);
+            this.lblBuildCount.Location = new System.Drawing.Point(147, 67);
             this.lblBuildCount.Name = "lblBuildCount";
-            this.lblBuildCount.Size = new System.Drawing.Size(108, 18);
+            this.lblBuildCount.Size = new System.Drawing.Size(71, 12);
             this.lblBuildCount.TabIndex = 2;
             this.lblBuildCount.Text = "ºôµå È½¼ö: 0";
             // 
             // lblBuildDate
             // 
             this.lblBuildDate.AutoSize = true;
-            this.lblBuildDate.Location = new System.Drawing.Point(271, 123);
+            this.lblBuildDate.Location = new System.Drawing.Point(224, 67);
             this.lblBuildDate.Name = "lblBuildDate";
-            this.lblBuildDate.Size = new System.Drawing.Size(196, 18);
+            this.lblBuildDate.Size = new System.Drawing.Size(97, 12);
             this.lblBuildDate.TabIndex = 3;
-            this.lblBuildDate.Text = "ºôµå ³¯Â¥: 2020-01-01";
+            this.lblBuildDate.Text = "(YYYY-MM-DD)";
             // 
             // lnkCompany
             // 
             this.lnkCompany.AutoSize = true;
-            this.lnkCompany.Location = new System.Drawing.Point(272, 153);
+            this.lnkCompany.Location = new System.Drawing.Point(147, 91);
             this.lnkCompany.Name = "lnkCompany";
-            this.lnkCompany.Size = new System.Drawing.Size(62, 18);
+            this.lnkCompany.Size = new System.Drawing.Size(41, 12);
             this.lnkCompany.TabIndex = 4;
             this.lnkCompany.TabStop = true;
             this.lnkCompany.Text = "È¸»ç¸í";
@@ -90,15 +90,15 @@ namespace Serial_Program
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(271, 183);
+            this.lblEmail.Location = new System.Drawing.Point(147, 114);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(223, 18);
+            this.lblEmail.Size = new System.Drawing.Size(157, 12);
             this.lblEmail.TabIndex = 5;
             this.lblEmail.Text = "dasuntech.inc@gmail.com";
             // 
             // About
             // 
-            this.ClientSize = new System.Drawing.Size(520, 252);
+            this.ClientSize = new System.Drawing.Size(328, 141);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lnkCompany);
             this.Controls.Add(this.lblBuildDate);

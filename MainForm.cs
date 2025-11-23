@@ -310,20 +310,6 @@ namespace Serial_Program
 
         private void TryShowLicenseStatus()
         {
-            // Respect global setting from Program. If license checking is disabled, show disabled labels and return.
-            try
-            {
-                if (!Program.LicenseCheckEnabled)
-                {
-                    if (tslVolume != null)
-                        tslVolume.Text = "볼륨: 체크 안함";
-                    if (tslExpiry != null)
-                        tslExpiry.Text = "만료일: 체크 안함";
-                    return;
-                }
-            }
-            catch { }
-
             try
             {
                 var svc = new LicenseService();
