@@ -1,0 +1,39 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Generate version info from git commit count before each build -->
+  <Target Name="SetVersionFromGit" BeforeTargets="BeforeBuild">
+    <PropertyGroup>
+      <GitCountFile>$(MSBuildProjectDirectory)\gitbuildcount.txt</GitCountFile>
+      <OutVersionFile>$(IntermediateOutputPath)VersionInfo.g.cs</OutVersionFile>
+    </PropertyGroup>
+
+    <!-- Run git to get commit count; write to temporary file -->
+    <Exec Command="git rev-list --count HEAD &gt; &quot;$(GitCountFile)&quot;" WorkingDirectory="$(MSBuildProjectDirectory)" IgnoreExitCode="true" />
+
+    <ReadLinesFromFile File="$(GitCountFile)">
+      <Output TaskParameter="Lines" ItemName="GitCountLines" />
+    </ReadLinesFromFile>
+
+    <PropertyGroup>
+      <GitCount>0</GitCount>
+      <GitCount Condition=" '@(GitCountLines)' != '' ">@(GitCountLines)</GitCount>
+      <!-- You can change major/minor here -->
+      <VersionString>1.0.$(GitCount).0</VersionString>
+    </PropertyGroup>
+
+    <Message Text="Git build count='$(GitCount)' -> Version=$(VersionString)" Importance="High" />
+
+    <!-- Write generated C# file into intermediate output so compiler picks it up -->
+    <ItemGroup>
+      <VersionLines Include="[assembly: System.Reflection.AssemblyFileVersion(&quot;$(VersionString)&quot;)]" />
+      <VersionLines Include="[assembly: System.Reflection.AssemblyInformationalVersion(&quot;$(VersionString)&quot;)]" />
+    </ItemGroup>
+
+    <WriteLinesToFile File="$(OutVersionFile)" Overwrite="true" Encoding="UTF-8" Lines="@(VersionLines)" />
+
+    <ItemGroup>
+      <Compile Include="$(OutVersionFile)" />
+    </ItemGroup>
+
+    <Delete Files="$(GitCountFile)" ContinueOnError="true" />
+  </Target>
+</Project>

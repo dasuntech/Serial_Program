@@ -55,6 +55,7 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <None Include="docs\ChangeLogs.md" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,7 +79,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Directory.Build.targets" />
     <None Include="docs\license.lic" />
+    <None Include="docs\PromptLogs.md" />
     <None Include="docs\README.md" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
