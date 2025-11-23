@@ -12,6 +12,9 @@ namespace Serial_Program
         // Set to "1" to enable license checking by default.
         private const string LICENSE_CHECK = "1";
 
+        // Public program name for About dialog
+        public static string ProgramName = "시리얼 통신 프로그램";
+
         /// <summary>
         /// 해당 애플리케이션의 주 진입점입니다.
         /// </summary>

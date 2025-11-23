@@ -337,5 +337,29 @@ namespace Serial_Program
                     tslExpiry.Text = "만료일: 알수없음";
             }
         }
+
+        private void btnAbout_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                var about = new About();
+                // Load logo from resources path if exists
+                try
+                {
+                    var logoPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "res", "dasuntech_CI.jpg");
+                    if (System.IO.File.Exists(logoPath))
+                    {
+                        about.Controls.Find("pictureBoxLogo", true)[0].GetType().GetProperty("Image").SetValue(about.Controls.Find("pictureBoxLogo", true)[0], Image.FromFile(logoPath));
+                    }
+                }
+                catch { }
+
+                about.ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "About 창을 열 수 없습니다:\r\n" + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -33,6 +33,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnRefreshPorts = new System.Windows.Forms.Button();
+            this.btnAbout = new System.Windows.Forms.Button();
             this.lblHandshake = new System.Windows.Forms.Label();
             this.cmbHandshake = new System.Windows.Forms.ComboBox();
             this.lblStopBits = new System.Windows.Forms.Label();
@@ -68,6 +69,7 @@
             this.grpSettings.Controls.Add(this.btnClose);
             this.grpSettings.Controls.Add(this.btnOpen);
             this.grpSettings.Controls.Add(this.btnRefreshPorts);
+            this.grpSettings.Controls.Add(this.btnAbout);
             this.grpSettings.Controls.Add(this.lblHandshake);
             this.grpSettings.Controls.Add(this.cmbHandshake);
             this.grpSettings.Controls.Add(this.lblStopBits);
@@ -90,7 +92,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnClose.Location = new System.Drawing.Point(809, 69);
+            this.btnClose.Location = new System.Drawing.Point(758, 70);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 26);
             this.btnClose.TabIndex = 14;
@@ -101,7 +103,7 @@
             // btnOpen
             // 
             this.btnOpen.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnOpen.Location = new System.Drawing.Point(809, 28);
+            this.btnOpen.Location = new System.Drawing.Point(758, 28);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 26);
             this.btnOpen.TabIndex = 13;
@@ -119,6 +121,15 @@
             this.btnRefreshPorts.Text = "재확인";
             this.btnRefreshPorts.UseVisualStyleBackColor = true;
             this.btnRefreshPorts.Click += new System.EventHandler(this.btnRefreshPorts_Click);
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.Location = new System.Drawing.Point(851, 33);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(71, 56);
+            this.btnAbout.TabIndex = 15;
+            this.btnAbout.Text = "About";
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click_1);
             // 
             // lblHandshake
             // 
@@ -355,6 +366,7 @@
 
         #endregion
 
+        private System.Windows.Forms.Button btnAbout;
         private System.Windows.Forms.GroupBox grpSettings;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnOpen;
