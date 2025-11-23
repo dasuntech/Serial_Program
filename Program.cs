@@ -15,6 +15,9 @@ namespace Serial_Program
         // Public program name for About dialog
         public static string ProgramName = "시리얼 통신 프로그램";
 
+        // Public program version for About dialog
+        public static string ProgramVersion = "1.0.0";
+
         /// <summary>
         /// 해당 애플리케이션의 주 진입점입니다.
         /// </summary>

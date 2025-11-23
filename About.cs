@@ -16,8 +16,10 @@ namespace Serial_Program
 
         private void LoadInfo()
         {
-            // Program name from Program.ProgramName
+            // Program name and version
             lblProgramName.Text = Program.ProgramName;
+            if (lblVersion != null)
+                lblVersion.Text = "¹öÀü: " + Program.ProgramVersion;
 
             // Try to load logo from res folder in application directory
             try
