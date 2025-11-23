@@ -5,18 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+// Adjust namespace to match installed NuGet package if different
+using DasunTech.Licensing;
+
 namespace Serial_Program
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private Color _rxColor = Color.DodgerBlue;
         private Color _txColor = Color.LimeGreen;
         private CheckBox chkAppendCrlf; // CR/LF 자동 추가 체크박스
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             InitializeUi();
+
+            // Update license status in the status strip
+            TryShowLicenseStatus();
         }
                 
         /// <summary>
@@ -72,6 +78,8 @@ namespace Serial_Program
             // txtSend 아래에 배치
             chkAppendCrlf.Location = new Point(txtSend.Left, txtSend.Bottom + 5);
             this.Controls.Add(chkAppendCrlf);
+
+            // 라이센스 상태 표시 관련 코드는 NuGet 패키지로 대체되었으므로 여기서는 처리하지 않습니다.
         }
         
         /// <summary>
@@ -287,7 +295,7 @@ namespace Serial_Program
             }
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
@@ -297,6 +305,36 @@ namespace Serial_Program
             catch
             {
                 // 무시
+            }
+        }
+
+        private void TryShowLicenseStatus()
+        {
+            try
+            {
+                var svc = new LicenseService();
+                var info = svc.VerifyLicense();
+
+                if (tslVolume != null)
+                    tslVolume.Text = $"볼륨: {info.Volume}";
+                if (tslExpiry != null)
+                    tslExpiry.Text = info.Expiry.HasValue ? $"만료일: {info.Expiry.Value:yyyy-MM-dd}" : "만료일: 알수없음";
+            }
+            catch (LicenseException ex)
+            {
+                // 검증 실패 시 상태표시줄에 기본 텍스트 표시하고 오류 메시지는 팝업
+                if (tslVolume != null)
+                    tslVolume.Text = "볼륨: 알수없음";
+                if (tslExpiry != null)
+                    tslExpiry.Text = "만료일: 알수없음";
+                try { MessageBox.Show(ex.Message, "라이센스 오류", MessageBoxButtons.OK, MessageBoxIcon.Error); } catch { }
+            }
+            catch
+            {
+                if (tslVolume != null)
+                    tslVolume.Text = "볼륨: 알수없음";
+                if (tslExpiry != null)
+                    tslExpiry.Text = "만료일: 알수없음";
             }
         }
     }
