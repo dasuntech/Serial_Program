@@ -125,7 +125,7 @@
             // btnAbout
             // 
             this.btnAbout.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAbout.Location = new System.Drawing.Point(849, 20);
+            this.btnAbout.Location = new System.Drawing.Point(871, 20);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Size = new System.Drawing.Size(65, 44);
             this.btnAbout.TabIndex = 15;
@@ -137,7 +137,7 @@
             this.lblHandshake.AutoSize = true;
             this.lblHandshake.Location = new System.Drawing.Point(487, 48);
             this.lblHandshake.Name = "lblHandshake";
-            this.lblHandshake.Size = new System.Drawing.Size(77, 12);
+            this.lblHandshake.Size = new System.Drawing.Size(116, 18);
             this.lblHandshake.TabIndex = 12;
             this.lblHandshake.Text = "플로우컨트롤";
             // 
@@ -147,7 +147,7 @@
             this.cmbHandshake.FormattingEnabled = true;
             this.cmbHandshake.Location = new System.Drawing.Point(570, 44);
             this.cmbHandshake.Name = "cmbHandshake";
-            this.cmbHandshake.Size = new System.Drawing.Size(79, 20);
+            this.cmbHandshake.Size = new System.Drawing.Size(79, 26);
             this.cmbHandshake.TabIndex = 11;
             // 
             // lblStopBits
@@ -155,7 +155,7 @@
             this.lblStopBits.AutoSize = true;
             this.lblStopBits.Location = new System.Drawing.Point(315, 48);
             this.lblStopBits.Name = "lblStopBits";
-            this.lblStopBits.Size = new System.Drawing.Size(53, 12);
+            this.lblStopBits.Size = new System.Drawing.Size(80, 18);
             this.lblStopBits.TabIndex = 10;
             this.lblStopBits.Text = "스톱비트";
             // 
@@ -165,7 +165,7 @@
             this.cmbStopBits.FormattingEnabled = true;
             this.cmbStopBits.Location = new System.Drawing.Point(390, 44);
             this.cmbStopBits.Name = "cmbStopBits";
-            this.cmbStopBits.Size = new System.Drawing.Size(79, 20);
+            this.cmbStopBits.Size = new System.Drawing.Size(79, 26);
             this.cmbStopBits.TabIndex = 9;
             // 
             // lblParity
@@ -173,7 +173,7 @@
             this.lblParity.AutoSize = true;
             this.lblParity.Location = new System.Drawing.Point(487, 24);
             this.lblParity.Name = "lblParity";
-            this.lblParity.Size = new System.Drawing.Size(41, 12);
+            this.lblParity.Size = new System.Drawing.Size(62, 18);
             this.lblParity.TabIndex = 8;
             this.lblParity.Text = "패리티";
             // 
@@ -183,7 +183,7 @@
             this.cmbParity.FormattingEnabled = true;
             this.cmbParity.Location = new System.Drawing.Point(570, 20);
             this.cmbParity.Name = "cmbParity";
-            this.cmbParity.Size = new System.Drawing.Size(79, 20);
+            this.cmbParity.Size = new System.Drawing.Size(79, 26);
             this.cmbParity.TabIndex = 7;
             // 
             // lblDataBits
@@ -191,7 +191,7 @@
             this.lblDataBits.AutoSize = true;
             this.lblDataBits.Location = new System.Drawing.Point(315, 24);
             this.lblDataBits.Name = "lblDataBits";
-            this.lblDataBits.Size = new System.Drawing.Size(69, 12);
+            this.lblDataBits.Size = new System.Drawing.Size(104, 18);
             this.lblDataBits.TabIndex = 6;
             this.lblDataBits.Text = "데이터 비트";
             // 
@@ -201,7 +201,7 @@
             this.cmbDataBits.FormattingEnabled = true;
             this.cmbDataBits.Location = new System.Drawing.Point(390, 20);
             this.cmbDataBits.Name = "cmbDataBits";
-            this.cmbDataBits.Size = new System.Drawing.Size(79, 20);
+            this.cmbDataBits.Size = new System.Drawing.Size(79, 26);
             this.cmbDataBits.TabIndex = 5;
             // 
             // lblBaud
@@ -209,7 +209,7 @@
             this.lblBaud.AutoSize = true;
             this.lblBaud.Location = new System.Drawing.Point(18, 48);
             this.lblBaud.Name = "lblBaud";
-            this.lblBaud.Size = new System.Drawing.Size(84, 12);
+            this.lblBaud.Size = new System.Drawing.Size(122, 18);
             this.lblBaud.TabIndex = 4;
             this.lblBaud.Text = "통신속도(bps)";
             // 
@@ -219,7 +219,7 @@
             this.cmbBaud.FormattingEnabled = true;
             this.cmbBaud.Location = new System.Drawing.Point(119, 44);
             this.cmbBaud.Name = "cmbBaud";
-            this.cmbBaud.Size = new System.Drawing.Size(94, 20);
+            this.cmbBaud.Size = new System.Drawing.Size(94, 26);
             this.cmbBaud.TabIndex = 3;
             // 
             // lblPort
@@ -227,7 +227,7 @@
             this.lblPort.AutoSize = true;
             this.lblPort.Location = new System.Drawing.Point(18, 24);
             this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(92, 12);
+            this.lblPort.Size = new System.Drawing.Size(132, 18);
             this.lblPort.TabIndex = 1;
             this.lblPort.Text = "통신포트(COM)";
             // 
@@ -237,7 +237,7 @@
             this.cmbPort.FormattingEnabled = true;
             this.cmbPort.Location = new System.Drawing.Point(119, 20);
             this.cmbPort.Name = "cmbPort";
-            this.cmbPort.Size = new System.Drawing.Size(92, 20);
+            this.cmbPort.Size = new System.Drawing.Size(92, 26);
             this.cmbPort.TabIndex = 0;
             // 
             // rtbLog
@@ -258,7 +258,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSend.Location = new System.Drawing.Point(12, 613);
             this.txtSend.Name = "txtSend";
-            this.txtSend.Size = new System.Drawing.Size(560, 21);
+            this.txtSend.Size = new System.Drawing.Size(560, 28);
             this.txtSend.TabIndex = 2;
             this.txtSend.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSend_KeyDown);
             // 
@@ -322,22 +322,22 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslVolume,
             this.tslExpiry});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 666);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 656);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(969, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(969, 32);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "초기화 되지 않음";
             // 
             // tslVolume
             // 
             this.tslVolume.Name = "tslVolume";
-            this.tslVolume.Size = new System.Drawing.Size(49, 17);
+            this.tslVolume.Size = new System.Drawing.Size(74, 25);
             this.tslVolume.Text = "볼륨 : 0";
             // 
             // tslExpiry
             // 
             this.tslExpiry.Name = "tslExpiry";
-            this.tslExpiry.Size = new System.Drawing.Size(54, 17);
+            this.tslExpiry.Size = new System.Drawing.Size(82, 25);
             this.tslExpiry.Text = "만료일 : ";
             // 
             // MainForm
