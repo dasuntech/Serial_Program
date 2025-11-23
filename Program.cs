@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Reflection;
 
 // Replace with actual namespace of the installed NuGet package if different
 using DasunTech.Licensing;
@@ -10,12 +11,15 @@ namespace Serial_Program
     {
         // Default for license check when no command-line arg or environment variable is provided.
         // Set to "1" to enable license checking by default.
-        private const string LICENSE_CHECK = "1";
+        private const string LICENSE_CHECK = "0";
+
+        // Public flag indicating whether license checking is enabled for this run
+        public static bool LicenseCheckEnabled = false;
 
         // Public program name for About dialog
         public static string ProgramName = "시리얼 통신 프로그램";
 
-        // Public program version for About dialog
+        // Public program version for About dialog (default)
         public static string ProgramVersion = "1.0.0";
 
         /// <summary>
@@ -25,18 +29,31 @@ namespace Serial_Program
         static void Main(string[] args)
         {
             // Determine LICENSE_CHECK setting: command-line args take precedence, then environment variable, then LICENSE_CHECK
-            string licenseCheck = GetLicenseCheckFromArgs(args) ?? Environment.GetEnvironmentVariable("LICENSE_CHECK") ?? LICENSE_CHECK;
-            if (licenseCheck == "1")
+            string argVal = GetLicenseCheckFromArgs(args);
+            string envVal = Environment.GetEnvironmentVariable("LICENSE_CHECK");
+            string raw = (argVal ?? envVal ?? LICENSE_CHECK)?.Trim();
+
+            // Normalize to boolean: accept "1", "true", "yes" (case-insensitive) as enabled.
+            bool licenseEnabled = false;
+            if (!string.IsNullOrEmpty(raw))
+            {
+                if (string.Equals(raw, "1", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(raw, "true", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(raw, "yes", StringComparison.OrdinalIgnoreCase))
+                {
+                    licenseEnabled = true;
+                }
+            }
+
+            LicenseCheckEnabled = licenseEnabled;
+
+            // If license checking is enabled at startup, perform the verification here as before
+            if (LicenseCheckEnabled)
             {
                 try
                 {
-                    // 네임스페이스 변경에 따라 LicenseService, LicenseException 사용
                     var svc = new LicenseService();
                     var info = svc.VerifyLicense();
-
-                    // Optionally, you can expose these values to the rest of the app via static properties or other means.
-                    // Program.LicenseVolume = info.Volume; // if you re-add such properties
-                    // Program.LicenseExpiry = info.Expiry;
                 }
                 catch (LicenseException lex)
                 {
@@ -51,6 +68,21 @@ namespace Serial_Program
                     return;
                 }
             }
+
+            // Update ProgramVersion from compiled assembly's file version (generated during build)
+            try
+            {
+                var asm = Assembly.GetEntryAssembly() ?? Assembly.GetExecutingAssembly();
+                var fileVer = asm.GetCustomAttribute<AssemblyFileVersionAttribute>()?.Version;
+                var infoVer = asm.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+                if (!string.IsNullOrEmpty(fileVer))
+                    ProgramVersion = fileVer;
+                else if (!string.IsNullOrEmpty(infoVer))
+                    ProgramVersion = infoVer;
+                else if (asm.GetName().Version != null)
+                    ProgramVersion = asm.GetName().Version.ToString();
+            }
+            catch { }
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
